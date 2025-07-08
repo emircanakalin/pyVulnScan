@@ -1,6 +1,10 @@
 # pyVulnScan
 # PyVulnScan - Comprehensive Security Scanner
 
+![License](https://img.shields.io/badge/license-GPL-blue.svg)
+![Version](https://img.shields.io/badge/version-1.0-brightgreen.svg)
+![Python](https://img.shields.io/badge/python-3.x-blue.svg)
+
 ---
 
 ## Türkçe
