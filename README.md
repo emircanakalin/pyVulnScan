@@ -11,7 +11,7 @@
 
 ### Açıklama
 
-PyVulnScan, web uygulamaları ve ağ sistemleri için geliştirilmiş, açık kaynaklı bir güvenlik tarayıcısıdır. Amacı, yaygın güvenlik zafiyetlerini tespit etmek ve sonuçları anlaşılır, çift dilli (Türkçe/İngilizce) bir rapor formatında sunmaktır.
+PyVulnScan, web uygulamaları ve ağ sistemleri için geliştirilmiş, açık kaynaklı bir güvenlik tarayıcısıdır. Amacı, yaygın güvenlik zafiyetlerini tespit etmek ve sonuçları anlaşılır bir rapor formatında sunmaktır.
 
 ### Özellikler
 
