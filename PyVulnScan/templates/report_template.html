@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ texts.report_title }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f9; color: #333; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1, h2 { color: #4a4a4a; border-bottom: 2px solid #4a90e2; padding-bottom: 10px; }
+        h1 { text-align: center; }
+        .summary { background-color: #eef4ff; padding: 15px; border-left: 5px solid #4a90e2; margin-bottom: 20px; }
+        .summary p { margin: 5px 0; }
+        .vuln-section { margin-bottom: 20px; }
+        .vuln-table { width: 100%; border-collapse: collapse; }
+        .vuln-table th, .vuln-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        .vuln-table th { background-color: #f2f2f2; }
+        .high-risk { color: #d9534f; font-weight: bold; }
+        .medium-risk { color: #f0ad4e; font-weight: bold; }
+        .low-risk { color: #5bc0de; font-weight: bold; }
+        .footer { text-align: center; margin-top: 20px; font-size: 0.9em; color: #777; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ texts.report_title }}</h1>
+        
+        <div class="summary">
+            <p><strong>{{ texts.target_url }}:</strong> <a href="{{ target_url }}">{{ target_url }}</a></p>
+            <p><strong>{{ texts.target_host }}:</strong> {{ target_host }}</p>
+            <p><strong>{{ texts.scan_date }}:</strong> {{ scan_date }}</p>
+        </div>
+
+        <div class="vuln-section">
+            <h2>{{ texts.web_vulns_title }}</h2>
+            {% if web_vulns %}
+                <table class="vuln-table">
+                    <thead>
+                        <tr>
+                            <th>{{ texts.vuln_type }}</th>
+                            <th>{{ texts.risk }}</th>
+                            <th>{{ texts.details }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for vuln in web_vulns %}
+                        <tr>
+                            <td>{{ vuln.type }}</td>
+                            <td class="high-risk">{{ texts.high }}</td>
+                            <td>
+                                <strong>URL:</strong> {{ vuln.url }}<br>
+                                <strong>Payload:</strong> <code>{{ vuln.payload }}</code>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>{{ texts.no_web_vulns }}</p>
+            {% endif %}
+        </div>
+
+        <div class="vuln-section">
+            <h2>{{ texts.open_ports_title }}</h2>
+            {% if open_ports %}
+                <table class="vuln-table">
+                    <thead>
+                        <tr>
+                            <th>{{ texts.port }}</th>
+                            <th>{{ texts.status }}</th>
+                            <th>{{ texts.service_banner }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for port_info in open_ports %}
+                        <tr>
+                            <td>{{ port_info.port }}</td>
+                            <td>{{ texts.open }}</td>
+                            <td><code>{{ port_info.banner }}</code></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>{{ texts.no_open_ports }}</p>
+            {% endif %}
+        </div>
+
+        <div class="footer">
+            <p>{{ texts.footer_text }}</p>
+        </div>
+    </div>
+</body>
+</html>
