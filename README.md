@@ -1,2 +1,2 @@
 # pyVulnScan
-pyVulnScan
+PyVulnScan is an open-source security scanner designed to proactively strengthen the security of your web applications and network systems. It quickly detects common security vulnerabilities (Reflected XSS, basic SQLi) and network weaknesses (open ports, service information). By presenting scan results in detailed, bilingual (Turkish/English) HTML reports that are easy for anyone to understand, it provides a clear view of your security posture. Stay one step ahead of threats and protect your systems with PyVulnScan.
